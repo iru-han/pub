@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es5", // JavaScript 버전을 ES5로 컴파일 (구형 브라우저 호환성)
+    "lib": ["dom", "dom.iterable", "esnext"], // 사용 가능한 라이브러리 (브라우저 DOM, ESNext 기능)
+    "allowJs": true, // JavaScript 파일도 TypeScript 프로젝트에서 허용 (점진적 전환에 유리)
+    "skipLibCheck": true, // 라이브러리 파일의 타입 체크 건너뛰기 (설치 시간 절약)
+    "allowSyntheticDefaultImports": true, // 기본 임포트 허용 (예: import React from 'react')
+    "strict": true, // 엄격한 타입 체크 활성화 (권장)
+    "forceConsistentCasingInFileNames": true, // 파일명 대소문자 일관성 강제
+    "noEmit": true, // 컴파일 결과물(JS)을 생성하지 않음 (Next.js/CRA가 빌드 담당)
+    "esModuleInterop": true, // CommonJS 모듈을 ES 모듈처럼 임포트 허용
+    "module": "esnext", // 모듈 시스템을 ESNext로 사용
+    "moduleResolution": "node", // 모듈 해석 방식을 Node.js처럼 사용
+    "resolveJsonModule": true, // JSON 파일 임포트 허용
+    "isolatedModules": true, // 각 파일을 독립적인 모듈로 간주
+    "jsx": "preserve", // JSX 처리 방식 (React 관련 설정)
+    "incremental": true, // 증분 컴파일 활성화 (컴파일 속도 향상)
+    "outDir": "./dist", // 컴파일된 JS 파일이 생성될 디렉토리 (사용하지 않을 수도 있음)
+    "baseUrl": "./", // 모듈 해석을 위한 기준 경로 설정
+    "paths": {
+      "@/*": ["./src/*"] // 절대 경로 설정 (선택 사항, 유용)
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"], // TypeScript가 처리할 파일 확장자
+  "exclude": ["node_modules"], // TypeScript가 처리하지 않을 폴더
+  "types": ["jest", "node"],
+}
