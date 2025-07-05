@@ -7,15 +7,20 @@ import 'aos/dist/aos.css';
 
 // 기존 컴포넌트들
 import HeroSection from '@/components/sections/HeroSection';
-import IntroSection from '@/components/sections/IntroSection';
-import ServiceSection from '@/components/sections/ServiceSection';
-import StatisticSection from '@/components/sections/StatisticSection';
-import LongestClientSection from '@/components/sections/LongestClientSection';
 
 // 새로 추가할 컴포넌트 임포트
 import FixedRightSidebar from "@/components/FixedRightSidebar";
 import FixedBottomCtaBar from "@/components/FixedBottomCtaBar";
 import Footer from "@/components/Footer";
+import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
+import QuoteSection from "@/components/sections/QuoteSection";
+import PerformanceSection from "@/components/sections/PerformanceSection";
+import ServicesSection from "@/components/sections/ServiceSection";
+import HomepageCreationSection from "@/components/sections/HomepageCreationSection";
+import ClientSuccessSection from "@/components/sections/ClientSuccessSection";
+import ProcessSection from "@/components/sections/ProcessSection";
+import ContactFormSection from "@/components/sections/ContactFormSection";
+import Header from "@/components/Header";
 
 export default function HomePage() {
     useEffect(() => {
@@ -29,16 +34,19 @@ export default function HomePage() {
     return (
         <div className="relative">
             <HeroSection />
-            <IntroSection />
-            <ServiceSection />
-            <StatisticSection />
-            <LongestClientSection />
+            <WhyChooseUsSection />
+            {/* 기존 QuoteSection은 WhyChooseUsSection 내부에 포함되거나, 별도 컴포넌트로 만들 수 있습니다. */}
+            <PerformanceSection />
+            <ServicesSection />
+            <HomepageCreationSection />
+            <ClientSuccessSection />
+            <ProcessSection />
+            <ContactFormSection />
 
-            {/* Fixed 컴포넌트들은 페이지 최하단에 배치해도 괜찮습니다. */}
+            {/* 고정될 요소들 (필요시) */}
             <FixedRightSidebar />
             <FixedBottomCtaBar />
 
-            {/* 푸터는 페이지의 마지막 내용으로, FixedBottomCtaBar의 위에 위치하게 됩니다. */}
             <Footer />
         </div>
     );

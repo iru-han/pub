@@ -1,45 +1,33 @@
-// src/components/ServiceSection.tsx
-"use client"; // 자식 컴포넌트(ServiceCard)에서 "use client"를 사용하고, 부모도 DOM 조작이나 Hooks가 없어도 안전하게 "use client" 사용
+// src/app/(main-page)/sections/ServicesSection.tsx
+"use client";
 
 import React from 'react';
-import ServiceCard from '../ServiceCard'; // ServiceCard 컴포넌트 임포트
+import ServiceItem from '@/components/ServiceItem';
 
-const ServiceSection: React.FC = () => {
-    let logo = "https://cdn.pixabay.com/photo/2021/11/07/09/10/meta-6775086_960_720.jpg 1x, https://cdn.pixabay.com/photo/2021/11/07/09/10/meta-6775086_1280.jpg 2x";
-    const services = [
-        {
-            icon: logo, // 실제 아이콘 경로로 변경
-            title: "타이틀1",
-            description: "설명입니다.",
-        },
-        {
-            icon: logo, // 실제 아이콘 경로로 변경
-            title: "타이틀2",
-            description: "설명입니다.",
-        },
-        {
-            icon: logo,
-            title: "타이틀3",
-            description: "설명입니다.",
-        },
-        {
-            icon: logo,
-            title: "타이틀4",
-            description: "설명입니다.",
-        },
+const ServicesSection: React.FC = () => {
+    const servicesData = [
+        { icon: '🔍', title: '검색 노출 최적화', description: '학원 관련 검색 시 상위 노출되도록 최적화합니다.' },
+        { icon: '✍️', title: '블로그', description: '학원의 전문성과 교육 철학을 담은 블로그 콘텐츠를 제작합니다.' },
+        { icon: '📍', title: '플레이스', description: '네이버/카카오 플레이스 정보를 최적화하여 지역 학부모 유입을 늘립니다.' },
+        { icon: '👩‍👧‍👦', title: '맘카페 침투', description: '지역 맘카페 내에서 학원의 긍정적 입소문을 형성합니다.' },
+        { icon: '📱', title: 'SNS 관리', description: '인스타그램, 유튜브, 틱톡, 쓰레드 등 주요 SNS 채널을 전문적으로 관리합니다.' },
+        { icon: '📸', title: '영상 촬영 디렉팅', description: '학원의 강점을 부각할 수 있는 영상 콘텐츠 기획 및 촬영을 돕습니다.' },
+        { icon: '👍', title: '학부모 신뢰 확보용 콘텐츠', description: '학부모가 신뢰할 수 있는 교육 정보 및 성공 사례 콘텐츠를 제작합니다.' },
     ];
 
     return (
-        <section className="container mx-auto py-16 px-4">
-            <h2 className="text-4xl font-bold text-center mb-12">우리의 핵심 서비스</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {services.map((service, index) => (
-                    <ServiceCard
-                        key={service.title}
-                        iconSrc={service.icon}
+        <section className="container mx-auto py-20 px-4 bg-white"> {/* 배경색 및 패딩 변경 */}
+            <h2 className="text-5xl font-bold text-center text-mm-navy mb-16" data-aos="fade-up"> {/* 폰트 및 색상 변경 */}
+                명문 마케팅의 서비스
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"> {/* 간격 조정 */}
+                {servicesData.map((service, index) => (
+                    <ServiceItem
+                        key={index}
+                        icon={service.icon}
                         title={service.title}
                         description={service.description}
-                        aosDelay={index * 100} // 카드마다 딜레이를 줘서 순차적으로 나타나게 함
+                        aosDelay={index * 100}
                     />
                 ))}
             </div>
@@ -47,4 +35,4 @@ const ServiceSection: React.FC = () => {
     );
 };
 
-export default ServiceSection;
+export default ServicesSection;

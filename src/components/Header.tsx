@@ -108,7 +108,7 @@ const Header: React.FC<HeaderProps> = ({
                     <nav className="hidden md:flex items-center space-x-6"> {/* md 미만에서 숨김 */}
                         {currentMenuItems.map((item) => (
                             <div key={item.name} className="relative group">
-                                <Link href={item.path} className={`font-semibold text-lg hover:text-blue-600 transition-colors ${scrolled ? 'text-gray-700' : 'text-white'}`}>
+                                <Link href={item.path} className={`font-semibold text-lg hover:text-mm-gold transition-colors ${scrolled ? 'text-mm-gray' : 'text-white'}`}> {/* 색상 클래스 변경 */}
                                     {item.name}
                                 </Link>
                                 {item.subItems && (
@@ -128,12 +128,12 @@ const Header: React.FC<HeaderProps> = ({
 
                     {/* 데스크탑 로그인/회원가입 텍스트 링크 (모바일에서는 hidden) */}
                     <div className="hidden md:flex items-center space-x-2"> {/* md 미만에서 숨김 */}
-                        <Link href="/login" className={`text-sm ${scrolled ? 'text-gray-700' : 'text-white'} hover:text-blue-600`}>
-                            로그인
+                        <Link href="/login" className={`text-sm ${scrolled ? 'text-mm-gray' : 'text-white'} hover:text-mm-gold`}> {/* 색상 클래스 변경 */}
+                            {loginButtonText}
                         </Link>
-                        <span className={`text-gray-400 ${scrolled ? 'text-gray-400' : 'text-white'}`}>|</span> {/* 구분자 */}
-                        <Link href="/signup" className={`text-sm ${scrolled ? 'text-gray-700' : 'text-white'} hover:text-blue-600`}>
-                            회원가입
+                        <span className={`text-mm-gray ${scrolled ? 'text-mm-gray' : 'text-white'}`}>|</span> {/* 구분자 색상도 변경 */}
+                        <Link href="/signup" className={`text-sm ${scrolled ? 'text-mm-gray' : 'text-white'} hover:text-mm-gold`}> {/* 색상 클래스 변경 */}
+                            {signupButtonText}
                         </Link>
                     </div>
 
